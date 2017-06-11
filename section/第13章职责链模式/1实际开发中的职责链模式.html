@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var order = function(orderType, pay, stock){
+        if(orderType === 1){//500元定金购买模式
+            if(pay === true){//已支付定金
+                console.info("500元定金预购，得到100元优惠券");
+            }else{//未支付定金，降级到普通购买模式
+                if(stock > 0){
+                    console.info("普通购买，无优惠券");
+                }else{
+                    console.info("手机库存不足");
+                }
+            }
+        }else if(orderType === 2){//200元定金购买模式
+            if(pay === true){
+                console.info("200元定金预购，得到50元优惠券");
+            }else{
+                if(stock > 0){
+                    console.info("普通购买，无优惠券");
+                }else{
+                    console.info("手机库存不足");
+                }
+            }
+        }else if(orderType === 3){
+            if(stock > 0){
+                console.info("普通购买，无优惠券");
+            }else{
+                console.info("手机库存不足");
+            }
+        }
+    };
+    order(1, true, 2);
+</script>
+</body>
+</html>
