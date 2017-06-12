@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //500元订单
+    var order500 = function(orderType, pay, stock){
+        if(orderType === 1 && pay === true){
+            console.info("500元定金预购，得到100元优惠券");
+        }else{
+            order200(orderType, pay, stock);//将请求传递给200元订单
+        }
+    };
+    //200元订单
+    var order200 = function(orderType, pay, stock){
+        if(orderType ===2 && pay == true){
+            console.info("200元定金预购，得到50元优惠券");
+        }else{
+            orderNormal(orderType, pay, stock);
+        }
+    };
+    //普通购买订单
+    var orderNormal = function(orderType, pay, stock){
+        if(stock > 0){
+            console.info("普通购买，无优惠券");
+        }else{
+            console.info("手机库存不足");
+        }
+    };
+    order500(1, true, 500);
+    order500(3, true, 0);
+</script>
+</body>
+</html>
